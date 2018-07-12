@@ -1,21 +1,18 @@
 package com.youmga.webservice.web;
 
-import com.youmga.webservice.domain.Posts;
-import com.youmga.webservice.domain.PostsRepository;
 import com.youmga.webservice.dto.PostsSaveRequestDto;
+import com.youmga.webservice.service.PostsService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @AllArgsConstructor
 public class WebRestController {
 
-    private PostsRepository postsRepository;
+    private PostsService postsService;
 
     @GetMapping("/hello")
     public String hello() {
@@ -23,15 +20,15 @@ public class WebRestController {
     }
 
     @PostMapping("/posts")
-    public void savePosts(@RequestBody PostsSaveRequestDto dto) {
-        postsRepository.save(dto.toEntity());
+    public Long savePosts(@RequestBody PostsSaveRequestDto dto) {
+        return postsService.save(dto);
     }
 
-    @GetMapping("/posts")
-    public List<Posts> getPosts() {
-        System.out.println("duark");
-        System.out.println(postsRepository.findAll());
-        return postsRepository.findAll();
-    }
+//    @GetMapping("/posts")
+//    public List<Posts> getPosts() {
+//        System.out.println("duark");
+//        System.out.println(postsRepository.findAll());
+//        return postsRepository.findAll();
+//    }
 
 }
