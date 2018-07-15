@@ -1,4 +1,4 @@
-package com.youmga.webservice.common.exception;
+package com.youmga.webservice.core.exception;
 
 import lombok.Builder;
 import lombok.Getter;
