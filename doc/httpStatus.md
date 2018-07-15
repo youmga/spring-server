@@ -1,74 +1,367 @@
-Value	Description	Reference
-100	Continue	[RFC7231, Section 6.2.1]
-101	Switching Protocols	[RFC7231, Section 6.2.2]
-102	Processing	[RFC2518]
-103	Early Hints	[RFC8297]
-104-199	Unassigned
-200	OK	[RFC7231, Section 6.3.1]
-201	Created	[RFC7231, Section 6.3.2]
-202	Accepted	[RFC7231, Section 6.3.3]
-203	Non-Authoritative Information	[RFC7231, Section 6.3.4]
-204	No Content	[RFC7231, Section 6.3.5]
-205	Reset Content	[RFC7231, Section 6.3.6]
-206	Partial Content	[RFC7233, Section 4.1]
-207	Multi-Status	[RFC4918]
-208	Already Reported	[RFC5842]
-209-225	Unassigned
-226	IM Used	[RFC3229]
-227-299	Unassigned
-300	Multiple Choices	[RFC7231, Section 6.4.1]
-301	Moved Permanently	[RFC7231, Section 6.4.2]
-302	Found	[RFC7231, Section 6.4.3]
-303	See Other	[RFC7231, Section 6.4.4]
-304	Not Modified	[RFC7232, Section 4.1]
-305	Use Proxy	[RFC7231, Section 6.4.5]
-306	(Unused)	[RFC7231, Section 6.4.6]
-307	Temporary Redirect	[RFC7231, Section 6.4.7]
-308	Permanent Redirect	[RFC7538]
-309-399	Unassigned
-400	Bad Request	[RFC7231, Section 6.5.1]
-401	Unauthorized	[RFC7235, Section 3.1]
-402	Payment Required	[RFC7231, Section 6.5.2]
-403	Forbidden	[RFC7231, Section 6.5.3]
-404	Not Found	[RFC7231, Section 6.5.4]
-405	Method Not Allowed	[RFC7231, Section 6.5.5]
-406	Not Acceptable	[RFC7231, Section 6.5.6]
-407	Proxy Authentication Required	[RFC7235, Section 3.2]
-408	Request Timeout	[RFC7231, Section 6.5.7]
-409	Conflict	[RFC7231, Section 6.5.8]
-410	Gone	[RFC7231, Section 6.5.9]
-411	Length Required	[RFC7231, Section 6.5.10]
-412	Precondition Failed	[RFC7232, Section 4.2][RFC8144, Section 3.2]
-413	Payload Too Large	[RFC7231, Section 6.5.11]
-414	URI Too Long	[RFC7231, Section 6.5.12]
-415	Unsupported Media Type	[RFC7231, Section 6.5.13][RFC7694, Section 3]
-416	Range Not Satisfiable	[RFC7233, Section 4.4]
-417	Expectation Failed	[RFC7231, Section 6.5.14]
-418-420	Unassigned
-421	Misdirected Request	[RFC7540, Section 9.1.2]
-422	Unprocessable Entity	[RFC4918]
-423	Locked	[RFC4918]
-424	Failed Dependency	[RFC4918]
-425	Too Early	[RFC-ietf-httpbis-replay-04]
-426	Upgrade Required	[RFC7231, Section 6.5.15]
-427	Unassigned
-428	Precondition Required	[RFC6585]
-429	Too Many Requests	[RFC6585]
-430	Unassigned
-431	Request Header Fields Too Large	[RFC6585]
-432-450	Unassigned
-451	Unavailable For Legal Reasons	[RFC7725]
-452-499	Unassigned
-500	Internal Server Error	[RFC7231, Section 6.6.1]
-501	Not Implemented	[RFC7231, Section 6.6.2]
-502	Bad Gateway	[RFC7231, Section 6.6.3]
-503	Service Unavailable	[RFC7231, Section 6.6.4]
-504	Gateway Timeout	[RFC7231, Section 6.6.5]
-505	HTTP Version Not Supported	[RFC7231, Section 6.6.6]
-506	Variant Also Negotiates	[RFC2295]
-507	Insufficient Storage	[RFC4918]
-508	Loop Detected	[RFC5842]
-509	Unassigned
-510	Not Extended	[RFC2774]
-511	Network Authentication Required	[RFC6585]
-512-599	Unassigned
+# org.springframework.http.HttpStatus.java
+
+## 1xx Informational
+
+### CONTINUE(100, "Continue")
+
+> {@code 100 Continue}.
+>  @see <a href="http://tools.ietf.org/html/rfc7231##section-6.2.1">HTTP/1.1: Semantics and Content, section 6.2.1</a>
+
+### SWITCHING_PROTOCOLS(101, "Switching Protocols")
+
+> {@code 101 Switching Protocols}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.2.2">HTTP/1.1: Semantics and Content, section 6.2.2</a>
+
+### PROCESSING(102, "Processing")
+> {@code 102 Processing}.
+> @see <a href="http://tools.ietf.org/html/rfc2518##section-10.1">WebDAV</a>
+
+### CHECKPOINT(103, "Checkpoint")
+> {@code 103 Checkpoint}.
+> @see <a href="http://code.google.com/p/gears/wiki/ResumableHttpRequestsProposal">A proposal for supporting
+> resumable POST/PUT HTTP requests in HTTP/1.0</a>
+ 
+****
+
+## 2xx Success
+
+### OK(200, "OK")
+> {@code 200 OK}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.3.1">HTTP/1.1: Semantics and Content, section 6.3.1</a>
+ 
+### CREATED(201, "Created")
+> {@code 201 Created}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.3.2">HTTP/1.1: Semantics and Content, section 6.3.2</a>
+ 
+### ACCEPTED(202, "Accepted")
+> {@code 202 Accepted}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.3.3">HTTP/1.1: Semantics and Content, section 6.3.3</a>
+ 
+### NON_AUTHORITATIVE_INFORMATION(203, "Non-Authoritative Information")
+> {@code 203 Non-Authoritative Information}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.3.4">HTTP/1.1: Semantics and Content, section 6.3.4</a>
+ 
+### NO_CONTENT(204, "No Content")
+> {@code 204 No Content}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.3.5">HTTP/1.1: Semantics and Content, section 6.3.5</a>
+ 
+### RESET_CONTENT(205, "Reset Content")
+
+> {@code 205 Reset Content}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.3.6">HTTP/1.1: Semantics and Content, section 6.3.6</a>
+
+### PARTIAL_CONTENT(206, "Partial Content")
+ 
+> {@code 206 Partial Content}.
+> @see <a href="http://tools.ietf.org/html/rfc7233##section-4.1">HTTP/1.1: Range Requests, section 4.1</a>
+ 
+### MULTI_STATUS(207, "Multi-Status")
+
+> {@code 207 Multi-Status}.
+> @see <a href="http://tools.ietf.org/html/rfc4918##section-13">WebDAV</a>
+ 
+### ALREADY_REPORTED(208, "Already Reported")
+
+> {@code 208 Already Reported}.
+> @see <a href="http://tools.ietf.org/html/rfc5842##section-7.1">WebDAV Binding Extensions</a>
+ 
+### IM_USED(226, "IM Used")
+
+> {@code 226 IM Used}.
+> @see <a href="http://tools.ietf.org/html/rfc3229##section-10.4.1">Delta encoding in HTTP</a>
+ 
+****
+
+## 3xx Redirection
+
+### MULTIPLE_CHOICES(300, "Multiple Choices")
+
+> {@code 300 Multiple Choices}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.4.1">HTTP/1.1: Semantics and Content, section 6.4.1</a>
+ 
+### MOVED_PERMANENTLY(301, "Moved Permanently")
+
+> {@code 301 Moved Permanently}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.4.2">HTTP/1.1: Semantics and Content, section 6.4.2</a>
+
+### FOUND(302, "Found")
+ 
+> {@code 302 Found}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.4.3">HTTP/1.1: Semantics and Content, section 6.4.3</a>
+ 
+### @Deprecated MOVED_TEMPORARILY(302, "Moved Temporarily")
+
+> {@code 302 Moved Temporarily}.
+> @see <a href="http://tools.ietf.org/html/rfc1945##section-9.3">HTTP/1.0, section 9.3</a>
+> @deprecated in favor of {@link ##FOUND} which will be returned from {@code HttpStatus.valueOf(302)}
+ 
+### SEE_OTHER(303, "See Other")
+
+> {@code 303 See Other}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.4.4">HTTP/1.1: Semantics and Content, section 6.4.4</a>
+ 
+### NOT_MODIFIED(304, "Not Modified")
+
+> {@code 304 Not Modified}.
+> @see <a href="http://tools.ietf.org/html/rfc7232##section-4.1">HTTP/1.1: Conditional Requests, section 4.1</a>
+ 
+### @Deprecated USE_PROXY(305, "Use Proxy")
+
+> {@code 305 Use Proxy}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.4.5">HTTP/1.1: Semantics and Content, section 6.4.5</a>
+> @deprecated due to security concerns regarding in-band configuration of a proxy
+ 
+### TEMPORARY_REDIRECT(307, "Temporary Redirect")
+
+> {@code 307 Temporary Redirect}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.4.7">HTTP/1.1: Semantics and Content, section 6.4.7</a>
+ 
+### PERMANENT_REDIRECT(308, "Permanent Redirect")
+
+> {@code 308 Permanent Redirect}.
+> @see <a href="http://tools.ietf.org/html/rfc7238">RFC 7238</a>
+ 
+****
+
+## 4xx Client Error
+
+### BAD_REQUEST(400, "Bad Request")
+
+> {@code 400 Bad Request}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.1">HTTP/1.1: Semantics and Content, section 6.5.1</a>
+ 
+### UNAUTHORIZED(401, "Unauthorized")
+
+> {@code 401 Unauthorized}.
+> @see <a href="http://tools.ietf.org/html/rfc7235##section-3.1">HTTP/1.1: Authentication, section 3.1</a>
+ 
+### PAYMENT_REQUIRED(402, "Payment Required")
+
+> {@code 402 Payment Required}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.2">HTTP/1.1: Semantics and Content, section 6.5.2</a>
+ 
+### FORBIDDEN(403, "Forbidden")
+
+> {@code 403 Forbidden}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.3">HTTP/1.1: Semantics and Content, section 6.5.3</a>
+ 
+### NOT_FOUND(404, "Not Found")
+
+> {@code 404 Not Found}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.4">HTTP/1.1: Semantics and Content, section 6.5.4</a>
+ 
+### METHOD_NOT_ALLOWED(405, "Method Not Allowed")
+
+> {@code 405 Method Not Allowed}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.5">HTTP/1.1: Semantics and Content, section 6.5.5</a>
+ 
+### NOT_ACCEPTABLE(406, "Not Acceptable")
+
+> {@code 406 Not Acceptable}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.6">HTTP/1.1: Semantics and Content, section 6.5.6</a>
+ 
+### PROXY_AUTHENTICATION_REQUIRED(407, "Proxy Authentication Required")
+
+> {@code 407 Proxy Authentication Required}.
+> @see <a href="http://tools.ietf.org/html/rfc7235##section-3.2">HTTP/1.1: Authentication, section 3.2</a>
+ 
+### REQUEST_TIMEOUT(408, "Request Timeout")
+
+> {@code 408 Request Timeout}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.7">HTTP/1.1: Semantics and Content, section 6.5.7</a>
+ 
+### CONFLICT(409, "Conflict")
+
+> {@code 409 Conflict}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.8">HTTP/1.1: Semantics and Content, section 6.5.8</a>
+ 
+### GONE(410, "Gone")
+
+> {@code 410 Gone}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.9">
+>     HTTP/1.1: Semantics and Content, section 6.5.9</a>
+ 
+### LENGTH_REQUIRED(411, "Length Required")
+
+> {@code 411 Length Required}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.10">
+>     HTTP/1.1: Semantics and Content, section 6.5.10</a>
+ 
+### PRECONDITION_FAILED(412, "Precondition Failed")
+
+> {@code 412 Precondition failed}.
+> @see <a href="http://tools.ietf.org/html/rfc7232##section-4.2">
+>     HTTP/1.1: Conditional Requests, section 4.2</a>
+ 
+### PAYLOAD_TOO_LARGE(413, "Payload Too Large")
+
+> {@code 413 Payload Too Large}.
+> @since 4.1
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.11">
+>     HTTP/1.1: Semantics and Content, section 6.5.11</a>
+ 
+### @Deprecated REQUEST_ENTITY_TOO_LARGE(413, "Request Entity Too Large")
+
+> {@code 413 Request Entity Too Large}.
+> @see <a href="http://tools.ietf.org/html/rfc2616##section-10.4.14">HTTP/1.1, section 10.4.14</a>
+> @deprecated in favor of {@link ##PAYLOAD_TOO_LARGE} which will be
+> returned from {@code HttpStatus.valueOf(413)}
+ 
+### URI_TOO_LONG(414, "URI Too Long")
+
+> {@code 414 URI Too Long}.
+> @since 4.1
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.12">
+>     HTTP/1.1: Semantics and Content, section 6.5.12</a>
+ 
+### @Deprecated REQUEST_URI_TOO_LONG(414, "Request-URI Too Long")
+
+> {@code 414 Request-URI Too Long}.
+> @see <a href="http://tools.ietf.org/html/rfc2616##section-10.4.15">HTTP/1.1, section 10.4.15</a>
+> @deprecated in favor of {@link ##URI_TOO_LONG} which will be returned from {@code HttpStatus.valueOf(414)}
+ 
+### UNSUPPORTED_MEDIA_TYPE(415, "Unsupported Media Type")
+
+> {@code 415 Unsupported Media Type}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.13">
+>     HTTP/1.1: Semantics and Content, section 6.5.13</a>
+ 
+### REQUESTED_RANGE_NOT_SATISFIABLE(416, "Requested range not satisfiable")
+
+> {@code 416 Requested Range Not Satisfiable}.
+> @see <a href="http://tools.ietf.org/html/rfc7233##section-4.4">HTTP/1.1: Range Requests, section 4.4</a>
+ 
+### EXPECTATION_FAILED(417, "Expectation Failed")
+
+> {@code 417 Expectation Failed}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.5.14">
+>     HTTP/1.1: Semantics and Content, section 6.5.14</a>
+ 
+### I_AM_A_TEAPOT(418, "I'm a teapot")
+
+> {@code 418 I'm a teapot}.
+> @see <a href="http://tools.ietf.org/html/rfc2324##section-2.3.2">HTCPCP/1.0</a>
+ 
+### @Deprecated INSUFFICIENT_SPACE_ON_RESOURCE(419, "Insufficient Space On Resource")
+
+> @deprecated See
+> <a href="http://tools.ietf.org/rfcdiff?difftype=--hwdiff&url2=draft-ietf-webdav-protocol-06.txt">
+>     WebDAV Draft Changes</a>
+ 
+### @Deprecated METHOD_FAILURE(420, "Method Failure")
+
+> @deprecated See
+> <a href="http://tools.ietf.org/rfcdiff?difftype=--hwdiff&url2=draft-ietf-webdav-protocol-06.txt">
+>     WebDAV Draft Changes</a>
+ 
+### @Deprecated DESTINATION_LOCKED(421, "Destination Locked")
+
+> @deprecated
+> See <a href="http://tools.ietf.org/rfcdiff?difftype=--hwdiff&url2=draft-ietf-webdav-protocol-06.txt">
+>     WebDAV Draft Changes</a>
+ 
+### UNPROCESSABLE_ENTITY(422, "Unprocessable Entity")
+
+> {@code 422 Unprocessable Entity}.
+> @see <a href="http://tools.ietf.org/html/rfc4918##section-11.2">WebDAV</a>
+ 
+### LOCKED(423, "Locked")
+
+> {@code 423 Locked}.
+> @see <a href="http://tools.ietf.org/html/rfc4918##section-11.3">WebDAV</a>
+ 
+### FAILED_DEPENDENCY(424, "Failed Dependency")
+
+> {@code 424 Failed Dependency}.
+> @see <a href="http://tools.ietf.org/html/rfc4918##section-11.4">WebDAV</a>
+ 
+### UPGRADE_REQUIRED(426, "Upgrade Required")
+
+> {@code 426 Upgrade Required}.
+> @see <a href="http://tools.ietf.org/html/rfc2817##section-6">Upgrading to TLS Within HTTP/1.1</a>
+ 
+### PRECONDITION_REQUIRED(428, "Precondition Required")
+
+> {@code 428 Precondition Required}.
+> @see <a href="http://tools.ietf.org/html/rfc6585##section-3">Additional HTTP Status Codes</a>
+ 
+### TOO_MANY_REQUESTS(429, "Too Many Requests")
+
+> {@code 429 Too Many Requests}.
+> @see <a href="http://tools.ietf.org/html/rfc6585##section-4">Additional HTTP Status Codes</a>
+ 
+### REQUEST_HEADER_FIELDS_TOO_LARGE(431, "Request Header Fields Too Large")
+
+> {@code 431 Request Header Fields Too Large}.
+> @see <a href="http://tools.ietf.org/html/rfc6585##section-5">Additional HTTP Status Codes</a>
+ 
+### UNAVAILABLE_FOR_LEGAL_REASONS(451, "Unavailable For Legal Reasons")
+
+> {@code 451 Unavailable For Legal Reasons}.
+> @see <a href="https://tools.ietf.org/html/draft-ietf-httpbis-legally-restricted-status-04">
+> An HTTP Status Code to Report Legal Obstacles</a>
+> @since 4.3
+ 
+****
+
+## 5xx Server Error
+
+### INTERNAL_SERVER_ERROR(500, "Internal Server Error")
+
+> {@code 500 Internal Server Error}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.6.1">HTTP/1.1: Semantics and Content, section 6.6.1</a>
+ 
+### NOT_IMPLEMENTED(501, "Not Implemented")
+
+> {@code 501 Not Implemented}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.6.2">HTTP/1.1: Semantics and Content, section 6.6.2</a>
+ 
+### BAD_GATEWAY(502, "Bad Gateway")
+
+> {@code 502 Bad Gateway}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.6.3">HTTP/1.1: Semantics and Content, section 6.6.3</a>
+ 
+### SERVICE_UNAVAILABLE(503, "Service Unavailable")
+
+> {@code 503 Service Unavailable}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.6.4">HTTP/1.1: Semantics and Content, section 6.6.4</a>
+ 
+### GATEWAY_TIMEOUT(504, "Gateway Timeout")
+
+> {@code 504 Gateway Timeout}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.6.5">HTTP/1.1: Semantics and Content, section 6.6.5</a>
+ 
+### HTTP_VERSION_NOT_SUPPORTED(505, "HTTP Version not supported")
+
+> {@code 505 HTTP Version Not Supported}.
+> @see <a href="http://tools.ietf.org/html/rfc7231##section-6.6.6">HTTP/1.1: Semantics and Content, section 6.6.6</a>
+
+### VARIANT_ALSO_NEGOTIATES(506, "Variant Also Negotiates")
+ 
+> {@code 506 Variant Also Negotiates}
+> @see <a href="http://tools.ietf.org/html/rfc2295##section-8.1">Transparent Content Negotiation</a>
+ 
+### INSUFFICIENT_STORAGE(507, "Insufficient Storage")
+
+> {@code 507 Insufficient Storage}
+> @see <a href="http://tools.ietf.org/html/rfc4918##section-11.5">WebDAV</a>
+ 
+### LOOP_DETECTED(508, "Loop Detected")
+
+> {@code 508 Loop Detected}
+> @see <a href="http://tools.ietf.org/html/rfc5842##section-7.2">WebDAV Binding Extensions</a>
+ 
+### BANDWIDTH_LIMIT_EXCEEDED(509, "Bandwidth Limit Exceeded")
+
+> {@code 509 Bandwidth Limit Exceeded}
+ 
+### NOT_EXTENDED(510, "Not Extended")
+
+> {@code 510 Not Extended}
+> @see <a href="http://tools.ietf.org/html/rfc2774##section-7">HTTP Extension Framework</a>
+ 
+### NETWORK_AUTHENTICATION_REQUIRED(511, "Network Authentication Required")
+
+> {@code 511 Network Authentication Required}.
+> @see <a href="http://tools.ietf.org/html/rfc6585##section-6">Additional HTTP Status Codes</a>
+ 
