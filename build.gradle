@@ -33,9 +33,12 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-jdbc')
     compile('mysql:mysql-connector-java')
-    runtime('com.h2database:h2')
-    compileOnly('org.projectlombok:lombok')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
     compile('io.springfox:springfox-swagger2:2.9.2')
     compile('io.springfox:springfox-swagger-ui:2.9.2')
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.7.0'
+
+    runtime('com.h2database:h2')
+    compileOnly('org.projectlombok:lombok')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
