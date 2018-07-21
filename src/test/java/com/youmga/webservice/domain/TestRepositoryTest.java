@@ -1,7 +1,7 @@
 package com.youmga.webservice.domain;
 
-import com.youmga.webservice.domain.Test.Test;
-import com.youmga.webservice.domain.Test.TestRepository;
+import com.youmga.webservice.domain.test.Test;
+import com.youmga.webservice.domain.test.TestRepository;
 import org.junit.After;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

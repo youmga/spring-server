@@ -1,4 +1,4 @@
-package com.youmga.webservice.domain.Test;
+package com.youmga.webservice.domain.test;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

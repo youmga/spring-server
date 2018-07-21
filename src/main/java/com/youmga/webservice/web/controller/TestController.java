@@ -1,6 +1,6 @@
 package com.youmga.webservice.web.controller;
 
-import com.youmga.webservice.domain.Test.Test;
+import com.youmga.webservice.domain.test.Test;
 import com.youmga.webservice.service.TestService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -46,5 +46,4 @@ public class TestController {
     public ResponseEntity<?> deleteTest(@PathVariable long id) {
         return testService.deleteById(id);
     }
-
 }
