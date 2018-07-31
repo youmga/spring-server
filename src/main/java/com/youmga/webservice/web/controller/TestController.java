@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController // @Controller & @ResponseBody
 @AllArgsConstructor
-@RequestMapping("/api/test")
+@RequestMapping("/test")
 public class TestController {
 
     private TestService testService;
