@@ -11,8 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Data
 public class User {
 
     @Id
@@ -28,5 +28,4 @@ public class User {
         this.username = username;
         this.password = password;
     }
-
 }
