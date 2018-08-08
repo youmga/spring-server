@@ -1,4 +1,4 @@
-package com.youmga.webservice.domain;
+package com.youmga.webservice.domain.audit;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 public abstract class BaseTimeEntity {
 
     @CreatedDate
-    private LocalDateTime createdDate;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
-    private LocalDateTime modifiedDate;
+    private LocalDateTime updatedAt;
 }

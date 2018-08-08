@@ -1,6 +1,6 @@
 package com.youmga.webservice.domain.test;
 
-import com.youmga.webservice.domain.BaseTimeEntity;
+import com.youmga.webservice.domain.audit.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;

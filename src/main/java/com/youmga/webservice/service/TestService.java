@@ -30,7 +30,7 @@ public class TestService {
     @Transactional(readOnly = true)
     public Test findById(Long id) {
         return testRepository.findById(id)
-                .orElseThrow(() -> ResourceNotFoundException.builder().resourceName("test").fieldName("id").fieldValue(id).build());
+                .orElseThrow(() -> ResourceNotFoundException.builder().resourceName("Test").fieldName("id").fieldValue(id).build());
     }
 
     @Transactional
@@ -41,7 +41,7 @@ public class TestService {
                     posts.setContent(testRequest.getContent());
                     posts.setAuthor(testRequest.getAuthor());
                     return testRepository.save(posts);
-                }).orElseThrow(() -> ResourceNotFoundException.builder().resourceName("test").fieldName("id").fieldValue(id).build());
+                }).orElseThrow(() -> ResourceNotFoundException.builder().resourceName("Test").fieldName("id").fieldValue(id).build());
     }
 
     @Transactional
@@ -50,6 +50,6 @@ public class TestService {
                 .map(posts -> {
                     testRepository.delete(posts);
                     return ResponseEntity.ok().build();
-                }).orElseThrow(() -> ResourceNotFoundException.builder().resourceName("test").fieldName("id").fieldValue(id).build());
+                }).orElseThrow(() -> ResourceNotFoundException.builder().resourceName("Test").fieldName("id").fieldValue(id).build());
     }
 }
